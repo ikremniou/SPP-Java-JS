@@ -1,4 +1,4 @@
-package com.ilyashutko.buspark;
+package com.ilyashutko.buspark.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
