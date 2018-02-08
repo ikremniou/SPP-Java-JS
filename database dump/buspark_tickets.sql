@@ -27,21 +27,21 @@ CREATE TABLE `tickets` (
   `price` int(11) NOT NULL,
   `dep_time` datetime NOT NULL,
   `arr_time` datetime NOT NULL,
-  `distance` int(11) NOT NULL,
-  `count` int(11) DEFAULT NULL,
+  `distance` double NOT NULL,
+  `count` int(11) NOT NULL,
   `gov_number` varchar(45) NOT NULL,
   `driver_id` int(11) NOT NULL,
-  `dep_sity_id` int(11) NOT NULL,
-  `arr_sity_id` int(11) NOT NULL,
+  `dep_city_id` int(11) NOT NULL,
+  `arr_city_id` int(11) NOT NULL,
   `bus_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `driver_idx` (`driver_id`),
-  KEY `dep_sity_idx` (`dep_sity_id`),
-  KEY `arr_sity_idx` (`arr_sity_id`),
+  KEY `dep_sity_idx` (`dep_city_id`),
+  KEY `arr_sity_idx` (`arr_city_id`),
   KEY `bus_idx` (`bus_id`),
-  CONSTRAINT `arr_sity` FOREIGN KEY (`arr_sity_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `arr_sity` FOREIGN KEY (`arr_city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `bus` FOREIGN KEY (`bus_id`) REFERENCES `bus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `dep_sity` FOREIGN KEY (`dep_sity_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `dep_sity` FOREIGN KEY (`dep_city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `driver` FOREIGN KEY (`driver_id`) REFERENCES `worker` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -64,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-08 15:18:13
+-- Dump completed on 2018-02-08 19:41:40

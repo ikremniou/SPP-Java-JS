@@ -26,10 +26,10 @@ CREATE TABLE `buyer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `surname` varchar(45) NOT NULL,
-  `tiked_id` int(11) DEFAULT NULL,
+  `ticket_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `ticket_idx` (`tiked_id`),
-  CONSTRAINT `ticket` FOREIGN KEY (`tiked_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `ticket_idx` (`ticket_id`),
+  CONSTRAINT `ticket` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-08 15:18:13
+-- Dump completed on 2018-02-08 19:41:40
