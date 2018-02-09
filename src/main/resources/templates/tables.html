@@ -1,10 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Spring Boot - POST-GET AJAX Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+
 </head>
 <body>
-<h1>Hello</h1>
+<div class="container">
+    <div class="block">
+        <h1>City</h1>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Distance</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="city : ${cities}">
+                <tr>
+                    <th scope="row" th:text="${city.get_id()}"></th>
+                    <td th:text="${city.get_name()}"></td>
+                    <td th:text="${city.get_distance()}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block">
+        <h1>Bus</h1>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Capacity</th>
+                <th>DriverId</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="bus : ${buses}">
+                <tr>
+                    <th scope="row" th:text="${bus.get_id()}"></th>
+                    <td th:text="${bus.get_model()}"></td>
+                    <td th:text="${bus.get_capacity()}"></td>
+                    <td th:text="${bus.get_driverId()}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block">
+        <h1>Ticket</h1>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Price</th>
+                <th>DepartmentTime</th>
+                <th>ArrivalTime</th>
+                <th>Distance</th>
+                <th>Count</th>
+                <th>GovNumber</th>
+                <th>DriverId</th>
+                <th>DepartmentCityId</th>
+                <th>ArrivalCityId</th>
+                <th>BusId</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="ticket : ${tickets}">
+                <tr>
+                    <th scope="row" th:text="${ticket.get_id()}"></th>
+                    <td th:text="${ticket.get_price()}"></td>
+                    <td th:text="${ticket.get_departmentTime()}"></td>
+                    <td th:text="${ticket.get_arrivalTime()}"></td>
+                    <td th:text="${ticket.get_distance()}"></td>
+                    <td th:text="${ticket.get_count()}"></td>
+                    <td th:text="${ticket.get_govNumber()}"></td>
+                    <td th:text="${ticket.get_driverId()}"></td>
+                    <td th:text="${ticket.get_departmentCityId()}"></td>
+                    <td th:text="${ticket.get_arrivalCityId()}"></td>
+                    <td th:text="${ticket.get_busId()}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block">
+        <h1>Worker</h1>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Role</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="worker : ${workers}">
+                <tr>
+                    <th scope="row" th:text="${worker.get_id()}"></th>
+                    <td th:text="${worker.get_name()}"></td>
+                    <td th:text="${worker.get_surname()}"></td>
+                    <td th:text="${worker.getRole()}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="block">
+        <h1>Buyer</h1>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>TicketId</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="buyer : ${buyers}">
+                <tr>
+                    <th scope="row" th:text="${buyer.get_id()}"></th>
+                    <td th:text="${buyer.get_name()}"></td>
+                    <td th:text="${buyer.get_surname()}"></td>
+                    <td th:text="${buyer.get_ticketId()}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
