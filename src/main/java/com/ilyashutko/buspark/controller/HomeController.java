@@ -13,31 +13,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tables")
 public class HomeController {
-    @RequestMapping(method = RequestMethod.GET)
-    public String printTables(ModelMap model) {
-        IRepository repository = new BusParkRepository();
-        BusParkService busParkService = new BusParkService(repository);
-        try{
-            List<City> cities = busParkService.GetAllCites();
-            List<Bus> buses = busParkService.GetAllBuses();
-            List<Buyer> buyers = busParkService.GetAllBuyers();
-            List<Ticket> tickets = busParkService.GetAllTickets();
-            List<Worker> workers = busParkService.GetAllWorkers();
 
-            model.addAttribute("cities", cities);
-            model.addAttribute("buses", buses);
-            model.addAttribute("tickets", tickets);
-            model.addAttribute("workers",workers);
-            model.addAttribute("buyers", buyers);
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index(ModelMap modelMap){
+        return "index";
+    }
 
-            return "tables";
-        }
-        catch (ServiceOperationFailException ex){
-            model.addAttribute("error", ex.getMessage() + "/" + ex.getCause().getMessage());
-            return "error";
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String contactsPrint(ModelMap modelMap){
+        return "contact";
+    }
 
-        }
+    @RequestMapping("/about")
+    public String aboutPrint(ModelMap modelMap){
+        return "about";
     }
 }
