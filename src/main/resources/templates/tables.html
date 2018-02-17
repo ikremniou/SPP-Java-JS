@@ -112,8 +112,8 @@
             <div th:each="worker : ${workers}">
                 <tr>
                     <th scope="row" th:text="${worker.get_id()}"></th>
-                    <td th:text="${worker.get_name()}"></td>
-                    <td th:text="${worker.get_surname()}"></td>
+                    <td th:text="${worker.getName()}"></td>
+                    <td th:text="${worker.getSurname()}"></td>
                     <td th:text="${worker.getRole()}"></td>
                 </tr>
             </div>

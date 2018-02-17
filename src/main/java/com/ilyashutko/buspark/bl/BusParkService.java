@@ -32,14 +32,6 @@ public class BusParkService {
         }
     }
 
-    public List<Buyer> GetAllBuyers() throws ServiceOperationFailException {
-        try {
-            return _repository.getAllBuyers();
-        } catch (SQLException ex){
-            throw new ServiceOperationFailException("Fail to get all buyers", ex);
-        }
-    }
-
     public List<Ticket> GetAllTickets() throws ServiceOperationFailException {
         try {
             return _repository.getAllTickets();
@@ -48,9 +40,9 @@ public class BusParkService {
         }
     }
 
-    public List<Worker> GetAllWorkers() throws ServiceOperationFailException {
+    public List<User> GetAllWorkers() throws ServiceOperationFailException {
         try {
-            return _repository.getAllWorkers();
+            return _repository.getAllAccounts();
         } catch (SQLException ex){
             throw new ServiceOperationFailException("Fail to get all worker", ex);
         }
