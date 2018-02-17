@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
 <head>
     <title>Spring Boot - POST-GET AJAX Example</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
-
 </head>
 <body>
-<div class="container">
-    <div class="block">
+<div layout:fragment="page_content" id="page_content">
+        <div class="block">
         <h1>City</h1>
 
         <table class="table table-bordered">
