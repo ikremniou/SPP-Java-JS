@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.xml.ws.Action;
+
 @Controller
 @RequestMapping(value = "/auth")
 public class RegistrationController {
@@ -31,6 +33,7 @@ public class RegistrationController {
         return "register";
     }
 
+    @Action
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registration(@ModelAttribute User userForm, BindingResult bindingResult, Model model) {
         userValidator.validate(userForm, bindingResult);
