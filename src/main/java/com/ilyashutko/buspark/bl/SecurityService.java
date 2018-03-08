@@ -1,4 +1,7 @@
 package com.ilyashutko.buspark.bl;
 
-public class SecurityService {
+public interface SecurityService {
+    String findLoggedInUsername();
+
+    void autoLogin(String username, String password);
 }
