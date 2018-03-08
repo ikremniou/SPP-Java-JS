@@ -3,25 +3,26 @@
       layout:decorate="~{base}">
 <head>
     <title>Tickets</title>
+    <script type="text/javascript" th:src="@{/scripts/TicketScript.js}"></script>
 </head>
 <body>
 <div layout:fragment="page_content" id="page_content">
     <div class="row" style="margin-top:20px;">
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-success" style="width:95% !important;">Create</button>
+            <button type="button" class="btn btn-outline-success" style="width:95% !important; margin-bottom: 5px">Create</button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-info" style="width:95% !important;">Edit</button>
+            <button type="button" class="btn btn-outline-info" style="width:95% !important; margin-bottom: 5px" onclick="editTicket()">Edit</button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-danger" style="width:95% !important;">Delete</button>
+            <button type="button" class="btn btn-outline-danger" style="width:95% !important; margin-bottom: 5px" onclick="deleteTicket()">Delete</button>
         </div>
     </div>
 
     <div class="block">
         <h1>Ticket</h1>
 
-        <table class="table table-bordered table-fixed" style="max-height:100px; overflow-y:auto;">
+        <table id="tickets" class="table table-bordered table-fixed" style="max-height:100px; overflow-y:auto;">
             <thead class="thead-dark">
             <tr>
                 <th>#</th>
@@ -31,56 +32,67 @@
             </thead>
             <tbody>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="2">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="3">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
+                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
