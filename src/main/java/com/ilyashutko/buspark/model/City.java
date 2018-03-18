@@ -1,32 +1,38 @@
 package com.ilyashutko.buspark.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "city")
 public class City{
 
-    private int _id;
-    private String _name;
-    private double _distance;
-
-    public int get_id() {
-        return _id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int getId() {
+        return id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public double get_distance() {
-        return _distance;
+    public String getName() {
+        return name;
     }
 
-    public void set_distance(double _distance) {
-        this._distance = _distance;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String get_name() {
-        return _name;
+    public double getDistance() {
+        return distance;
     }
 
-    public void set_name(String _name) {
-        this._name = _name;
+    public void setDistance(double distance) {
+        this.distance = distance;
     }
+
+    private int id;
+    private String name;
+    private double distance;
 }

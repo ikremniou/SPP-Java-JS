@@ -1,105 +1,119 @@
 package com.ilyashutko.buspark.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "ticket")
 public class Ticket {
-    private int _id;
-    private int _price;
-    private Date _departmentTime;
-    private Date _arrivalTime;
-    private double _distance;
-    private int _count;
-    private String _govNumber;
-    private int _driverId;
-    private int _departmentCityId;
-    private int _arrivalCityId;
-    private int _busId;
 
-    public int get_id() {
-        return _id;
+    private int id;
+    private int price;
+    private Date departmentTime;
+    private Date arrivalTime;
+    private double distance;
+    private int count;
+    private String govNumber;
+    private User driver;
+    private City departmentCity;
+    private City arrivalCity;
+    private Bus bus;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int getId() {
+        return id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int get_price() {
-        return _price;
+    public int getPrice() {
+        return price;
     }
 
-    public void set_price(int _price) {
-        this._price = _price;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public Date get_departmentTime() {
-        return _departmentTime;
+    public Date getDepartmentTime() {
+        return departmentTime;
     }
 
-    public void set_departmentTime(Date _departmentTime) {
-        this._departmentTime = _departmentTime;
+    public void setDepartmentTime(Date departmentTime) {
+        this.departmentTime = departmentTime;
     }
 
-    public Date get_arrivalTime() {
-        return _arrivalTime;
+    public Date getArrivalTime() {
+        return arrivalTime;
     }
 
-    public void set_arrivalTime(Date _arrivalTime) {
-        this._arrivalTime = _arrivalTime;
+    public void setArrivalTime(Date arrivalTime) {
+        this.arrivalTime = arrivalTime;
     }
 
-    public double get_distance() {
-        return _distance;
+    public double getDistance() {
+        return distance;
     }
 
-    public void set_distance(double _distance) {
-        this._distance = _distance;
+    public void setDistance(double distance) {
+        this.distance = distance;
     }
 
-    public int get_count() {
-        return _count;
+    public int getCount() {
+        return count;
     }
 
-    public void set_count(int _count) {
-        this._count = _count;
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public String get_govNumber() {
-        return _govNumber;
+    public String getGovNumber() {
+        return govNumber;
     }
 
-    public void set_govNumber(String _govNumber) {
-        this._govNumber = _govNumber;
+    public void setGovNumber(String govNumber) {
+        this.govNumber = govNumber;
     }
 
-    public int get_driverId() {
-        return _driverId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    public User getDriver() {
+        return driver;
     }
 
-    public void set_driverId(int _driverId) {
-        this._driverId = _driverId;
+    public void setDriver(User driver) {
+        this.driver = driver;
     }
 
-    public int get_departmentCityId() {
-        return _departmentCityId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="city_dep_id")
+    public City getDepartmentCity() {
+        return departmentCity;
     }
 
-    public void set_departmentCityId(int _departmentCityId) {
-        this._departmentCityId = _departmentCityId;
+    public void setDepartmentCity(City departmentCity) {
+        this.departmentCity = departmentCity;
     }
 
-    public int get_arrivalCityId() {
-        return _arrivalCityId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="city_arr_id")
+    public City getArrivalCity() {
+        return arrivalCity;
     }
 
-    public void set_arrivalCityId(int _arrivalCityId) {
-        this._arrivalCityId = _arrivalCityId;
+    public void setArrivalCity(City arrivalCity) {
+        this.arrivalCity = arrivalCity;
     }
 
-    public int get_busId() {
-        return _busId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="bus_id")
+    public Bus getBus() {
+        return bus;
     }
 
-    public void set_busId(int _busId) {
-        this._busId = _busId;
+    public void setBus(Bus bus) {
+        this.bus = bus;
     }
 }

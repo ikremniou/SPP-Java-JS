@@ -1,43 +1,48 @@
 package com.ilyashutko.buspark.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "bus")
 public class Bus {
-    private int _id;
-    private String _model;
-    private int _capacity;
-    private  Integer _driverId;
+    private int id;
+    private String model;
+    private int capacity;
+    private User driver;
 
-
-    public int get_id() {
-        return _id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int getId() {
+        return id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String get_model() {
-        return _model;
+    public String getModel() {
+        return model;
     }
 
-    public void set_model(String _model) {
-        this._model = _model;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public int get_capacity() {
-        return _capacity;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void set_capacity(int _capacity) {
-        this._capacity = _capacity;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public Integer get_driverId() {
-        return _driverId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    public User getDriver() {
+        return driver;
     }
 
-    public void set_driverId(Integer _driverId) {
-        this._driverId = _driverId;
+    public void setDriver(User driver) {
+        this.driver = driver;
     }
-
-
 }
