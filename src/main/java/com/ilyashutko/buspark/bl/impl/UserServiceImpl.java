@@ -1,5 +1,6 @@
-package com.ilyashutko.buspark.bl;
+package com.ilyashutko.buspark.bl.impl;
 
+import com.ilyashutko.buspark.bl.UserService;
 import com.ilyashutko.buspark.dal.RoleRepository;
 import com.ilyashutko.buspark.dal.UserRepository;
 import com.ilyashutko.buspark.model.User;

@@ -13,11 +13,19 @@ public class Ticket {
     private Date arrivalTime;
     private double distance;
     private int count;
-    private String govNumber;
     private User driver;
     private City departmentCity;
     private City arrivalCity;
     private Bus bus;
+    private Boolean IsInternational;
+
+    public Boolean getInternational() {
+        return IsInternational;
+    }
+
+    public void setInternational(Boolean international) {
+        IsInternational = international;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -67,14 +75,6 @@ public class Ticket {
 
     public void setCount(int count) {
         this.count = count;
-    }
-
-    public String getGovNumber() {
-        return govNumber;
-    }
-
-    public void setGovNumber(String govNumber) {
-        this.govNumber = govNumber;
     }
 
     @OneToOne

@@ -9,6 +9,15 @@ public class Bus {
     private String model;
     private int capacity;
     private User driver;
+    private String govNumber;
+
+    public String getGovNumber() {
+        return govNumber;
+    }
+
+    public void setGovNumber(String govNumber) {
+        this.govNumber = govNumber;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
