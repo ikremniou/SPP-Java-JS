@@ -14,6 +14,18 @@ public class User {
     private String passwordConfirm;
     private Set<Role> roles;
 
+    @OneToMany
+    @JoinColumn(name="tickets")
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    private Set<Ticket> tickets;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {

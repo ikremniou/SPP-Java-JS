@@ -77,7 +77,7 @@ public class Ticket {
         this.govNumber = govNumber;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="user_id")
     public User getDriver() {
         return driver;
@@ -87,7 +87,7 @@ public class Ticket {
         this.driver = driver;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="city_dep_id")
     public City getDepartmentCity() {
         return departmentCity;
@@ -97,7 +97,7 @@ public class Ticket {
         this.departmentCity = departmentCity;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="city_arr_id")
     public City getArrivalCity() {
         return arrivalCity;

@@ -36,7 +36,7 @@ public class Bus {
         this.capacity = capacity;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name="user_id")
     public User getDriver() {
         return driver;
