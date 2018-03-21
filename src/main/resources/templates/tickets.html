@@ -9,7 +9,7 @@
 <div layout:fragment="page_content" id="page_content">
     <div class="row" style="margin-top:20px;">
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-success" style="width:95% !important; margin-bottom: 5px">Create</button>
+            <button type="button" class="btn btn-outline-success" onclick="location.href='/admin/addTicket';" style="width:95% !important; margin-bottom: 5px">Create</button>
         </div>
         <div class="col-md-2">
             <button type="button" class="btn btn-outline-info" style="width:95% !important; margin-bottom: 5px" onclick="editTicket()">Edit</button>
@@ -25,9 +25,11 @@
         <table id="tickets" class="table table-bordered table-fixed" style="max-height:100px; overflow-y:auto;">
             <thead class="thead-dark">
             <tr>
-                <th>#</th>
-                <th>DepartmentTime</th>
-                <th>ArrivalTime</th>
+                <th>Department Time</th>
+                <th>Arrival Time</th>
+                <th>Department City</th>
+                <th>Arrival City</th>
+                <th>Price</th>
             </tr>
             </thead>
             <tbody>
@@ -36,63 +38,13 @@
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
+                <td>1</td>
+                <td>1</td>
             </tr>
             <tr>
                 <input type="hidden" value="2">
                 <td>1</td>
                 <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="3">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="1">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="1">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="1">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="1">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="1">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="1">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="1">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="1">
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
+<head>
+    <title>Tickets detail</title>
+</head>
+<body>
+<div layout:fragment="page_content" id="page_content">
+    <input name="id" th:field="${ticket.id}" type="hidden">
+
+    <form role="form" th:action="@{/admin/addTicket}" th:object="${ticket}" method="post">
+        <fieldset>
+            <h2>Ticket</h2>
+            <hr class="colorgraph">
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left;">
+                        <h4>Price</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left;">
+                        <input type="text" name="price" th:field="${ticket.price}" th:errorclass="borderColorRed" class="form-control input-lg">
+                    </div>
+                </div>
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>Distance</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <input type="text" name="distance" th:field="${ticket.distance}" th:errorclass="borderColorRed" class="form-control input-lg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>Department time</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <input type="text" name="departmentTime" th:field="${ticket.departmentTime}" th:errorclass="borderColorRed" class="form-control input-lg">
+                    </div>
+                </div>
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>Arrival time</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <input type="text" name="arrivalTime" th:field="${ticket.arrivalTime}" th:errorclass="borderColorRed" class="form-control input-lg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>Department city</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <select class="form-control" th:field="*{departmentCity}">
+                            <option th:each="departmentCity : ${departmentCities}" th:value="${departmentCity}" th:text="${departmentCity}">Department city</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>Arrival city</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <select class="form-control" th:field="*{arrivalCity}">
+                            <option th:each="arrivalCity : ${arrivalCities}" th:value="${arrivalCity}" th:text="${arrivalCity}">Arrival city</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>Driver</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <select class="form-control" th:field="*{driver}">
+                            <option th:each="driver : ${drivers}" th:value="${driver}" th:text="${driver}">Driver</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>Bus</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <select class="form-control" th:field="*{bus}">
+                            <option th:each="bus : ${buses}" th:value="${bus}" th:text="${bus}">Driver</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>Count</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <input type="text" name="count" th:field="${ticket.count}" th:errorclass="borderColorRed" class="form-control input-lg">
+                    </div>
+                </div>
+                <div class="col-md-6" style="display: table;">
+                    <div style="display: table-cell; width: 30%; float: left; vertical-align: middle;">
+                        <h4>International</h4>
+                    </div>
+                    <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
+                        <label class="radio-inline" style="margin-right:15px;"><input type="radio" th:field="${ticket.isInternational}"  th:errorclass="borderColorRed" name="International" th:value="International">International</label>
+                        <label class="radio-inline"><input type="radio" th:field="${ticket.isInternational}" th:errorclass="borderColorRed" name="International" th:value="National">National</label>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="colorgraph">
+            <div class="row">
+                <div class="col-xs-5 col-sm-5 col-md-5">
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2" style="text-align: center;">
+                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Save">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

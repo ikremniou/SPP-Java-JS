@@ -8,6 +8,7 @@ import com.ilyashutko.buspark.bl.validator.TicketValidator;
 import com.ilyashutko.buspark.model.Bus;
 import com.ilyashutko.buspark.model.City;
 import com.ilyashutko.buspark.model.Ticket;
+import com.ilyashutko.buspark.modelViews.TicketView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.xml.ws.Action;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @Controller
 public class AdminController{
@@ -39,12 +42,17 @@ public class AdminController{
 
     @RequestMapping(value = "/admin/addTicket", method = RequestMethod.GET)
     public String addTicket(ModelMap modelMap){
-        return "something";
+        modelMap.addAttribute("ticket", new TicketView());
+        modelMap.addAttribute("departmentCities", new ArrayList<String>(Arrays.asList("departmentCities1", "departmentCities2")));
+        modelMap.addAttribute("arrivalCities", new ArrayList<String>(Arrays.asList("arrivalCities1", "arrivalCities2")));
+        modelMap.addAttribute("drivers", new ArrayList<String>(Arrays.asList("drivers1", "drivers2")));
+        modelMap.addAttribute("buses", new ArrayList<String>(Arrays.asList("buses1", "buses2")));
+        return "ticketsDetail";
     }
 
     @Action
     @RequestMapping(value = "/admin/addTicket", method = RequestMethod.POST)
-    public String addTicket(@ModelAttribute Ticket ticket, BindingResult bindingResult, Model model) {
+    public String addTicket(@ModelAttribute TicketView ticket, BindingResult bindingResult, Model model) {
         ticketValidator.validate(ticket, bindingResult);
 
         if (bindingResult.hasErrors()) {

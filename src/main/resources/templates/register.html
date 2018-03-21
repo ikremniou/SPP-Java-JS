@@ -16,27 +16,27 @@
                     <hr class="colorgraph">
                     <div class="form-group">
                         <h4>Login</h4>
-                        <input type="text" name="username" th:field="${user.username}" class="form-control input-lg" placeholder="Login">
+                        <input type="text" name="username" th:field="${user.username}" th:errorclass="borderColorRed" class="form-control input-lg" placeholder="Login">
                         <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
                     </div>
                     <div class="form-group">
                         <h4>Name</h4>
-                        <input type="text" name="name" th:field="${user.name}"  class="form-control input-lg" placeholder="Name">
+                        <input type="text" name="name" th:field="${user.name}" th:errorclass="borderColorRed"  class="form-control input-lg" placeholder="Name">
                         <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                     </div>
                     <div class="form-group">
                         <h4>Surname</h4>
-                        <input type="text" name="surname" th:field="${user.surname}"  class="form-control input-lg" placeholder="Surname">
+                        <input type="text" name="surname" th:field="${user.surname}" th:errorclass="borderColorRed" class="form-control input-lg" placeholder="Surname">
                         <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
                     </div>
                     <div class="form-group">
                         <h4>Password</h4>
-                        <input type="password" name="password" th:field="${user.password}"  class="form-control input-lg" placeholder="Password">
+                        <input type="password" name="password" th:field="${user.password}" th:errorclass="borderColorRed" class="form-control input-lg" placeholder="Password">
                         <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
                     </div>
                     <div class="form-group">
                         <h4>Confirm password</h4>
-                        <input type="password" name="passwordConfirm" th:field="${user.passwordConfirm}"  class="form-control input-lg" placeholder="Confirm password">
+                        <input type="password" name="passwordConfirm" th:field="${user.passwordConfirm}" th:errorclass="borderColorRed" class="form-control input-lg" placeholder="Confirm password">
                         <div th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></div>
                     </div>
                     <span class="button-checkbox">
