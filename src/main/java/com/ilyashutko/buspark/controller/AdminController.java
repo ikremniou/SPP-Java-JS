@@ -58,7 +58,7 @@ public class AdminController{
         if (bindingResult.hasErrors()) {
             return  "/admin/addTicket";
         }
-        return  "something";
+        return  "tickets";
     }
 
     @RequestMapping(value = "/admin/updateTicket", method = RequestMethod.GET)

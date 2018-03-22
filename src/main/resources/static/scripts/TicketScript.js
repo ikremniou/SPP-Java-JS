@@ -2,12 +2,14 @@ function editTicket(){
     var row  = getSelectedRow();
     var hiddenInput = $(row).find('input[type="hidden"]');
     var id = $(hiddenInput).val();
+    alert(id);
 };
 
 function deleteTicket(){
     var row  = getSelectedRow();
     var hiddenInput = $(row).find('input[type="hidden"]');
     var id = $(hiddenInput).val();
+    alert(id);
 };
 
 function getSelectedRow(){
@@ -24,7 +26,6 @@ function getSelectedRow(){
 
 $(document).ready(function(){
     $("#tickets tr").click(function(event) {
-        debugger;
         var table = $("#tickets");
         var row = event.target.parentElement;
         var selectedRow = getSelectedRow();

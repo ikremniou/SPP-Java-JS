@@ -19,6 +19,7 @@
                     </div>
                     <div style="display: table-cell; width: 70%; float: left;">
                         <input type="text" name="price" th:field="${ticket.price}" th:errorclass="borderColorRed" class="form-control input-lg">
+                        <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
                     </div>
                 </div>
                 <div class="col-md-6" style="display: table;">
@@ -27,6 +28,7 @@
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
                         <input type="text" name="distance" th:field="${ticket.distance}" th:errorclass="borderColorRed" class="form-control input-lg">
+                        <div th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}"></div>
                     </div>
                 </div>
             </div>
@@ -38,6 +40,7 @@
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
                         <input type="text" name="departmentTime" th:field="${ticket.departmentTime}" th:errorclass="borderColorRed" class="form-control input-lg">
+                        <div th:if="${#fields.hasErrors('departmentTime')}" th:errors="*{departmentTime}"></div>
                     </div>
                 </div>
                 <div class="col-md-6" style="display: table;">
@@ -46,6 +49,7 @@
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
                         <input type="text" name="arrivalTime" th:field="${ticket.arrivalTime}" th:errorclass="borderColorRed" class="form-control input-lg">
+                        <div th:if="${#fields.hasErrors('arrivalTime')}" th:errors="*{arrivalTime}"></div>
                     </div>
                 </div>
             </div>
@@ -59,6 +63,7 @@
                         <select class="form-control" th:field="*{departmentCity}">
                             <option th:each="departmentCity : ${departmentCities}" th:value="${departmentCity}" th:text="${departmentCity}">Department city</option>
                         </select>
+                        <div th:if="${#fields.hasErrors('departmentCity')}" th:errors="*{departmentCity}"></div>
                     </div>
                 </div>
                 <div class="col-md-6" style="display: table;">
@@ -69,6 +74,7 @@
                         <select class="form-control" th:field="*{arrivalCity}">
                             <option th:each="arrivalCity : ${arrivalCities}" th:value="${arrivalCity}" th:text="${arrivalCity}">Arrival city</option>
                         </select>
+                        <div th:if="${#fields.hasErrors('arrivalCity')}" th:errors="*{arrivalCity}"></div>
                     </div>
                 </div>
             </div>
@@ -83,6 +89,7 @@
                         <select class="form-control" th:field="*{driver}">
                             <option th:each="driver : ${drivers}" th:value="${driver}" th:text="${driver}">Driver</option>
                         </select>
+                        <div th:if="${#fields.hasErrors('driver')}" th:errors="*{driver}"></div>
                     </div>
                 </div>
                 <div class="col-md-6" style="display: table;">
@@ -93,6 +100,7 @@
                         <select class="form-control" th:field="*{bus}">
                             <option th:each="bus : ${buses}" th:value="${bus}" th:text="${bus}">Driver</option>
                         </select>
+                        <div th:if="${#fields.hasErrors('bus')}" th:errors="*{bus}"></div>
                     </div>
                 </div>
             </div>
@@ -104,6 +112,7 @@
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
                         <input type="text" name="count" th:field="${ticket.count}" th:errorclass="borderColorRed" class="form-control input-lg">
+                        <div th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></div>
                     </div>
                 </div>
                 <div class="col-md-6" style="display: table;">
@@ -113,6 +122,7 @@
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
                         <label class="radio-inline" style="margin-right:15px;"><input type="radio" th:field="${ticket.isInternational}"  th:errorclass="borderColorRed" name="International" th:value="International">International</label>
                         <label class="radio-inline"><input type="radio" th:field="${ticket.isInternational}" th:errorclass="borderColorRed" name="International" th:value="National">National</label>
+                        <div th:if="${#fields.hasErrors('isInternational')}" th:errors="*{isInternational}"></div>
                     </div>
                 </div>
             </div>

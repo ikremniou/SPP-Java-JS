@@ -33,22 +33,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <input type="hidden" value="1">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <input type="hidden" value="2">
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
+                <tr th:each="ticket : ${tickets}">
+                    <input th:value="${ticket.id}" type="hidden" >
+                    <td th:text="${ticket.departmentTime}"></td>
+                    <td th:text="${ticket.arrivalTime}"></td>
+                    <td th:text="${ticket.departmentCity}"></td>
+                    <td th:text="${ticket.arrivalCity}"></td>
+                    <td th:text="${ticket.price}"></td>
+                </tr>
             </tbody>
         </table>
     </div>
