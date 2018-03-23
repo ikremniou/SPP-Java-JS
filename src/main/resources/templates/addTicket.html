@@ -6,7 +6,6 @@
 </head>
 <body>
 <div layout:fragment="page_content" id="page_content">
-    <input name="id" th:field="${ticket.id}" type="hidden">
 
     <form role="form" th:action="@{/admin/addTicket}" th:object="${ticket}" method="post">
         <fieldset>
@@ -39,7 +38,7 @@
                         <h4>Department time</h4>
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
-                        <input type="text" name="departmentTime" th:field="${ticket.departmentTime}" th:errorclass="borderColorRed" class="form-control input-lg">
+                        <input type="datetime-local" name="departmentTime" th:field="${ticket.departmentTime}" th:errorclass="borderColorRed" class="form-control">
                         <div th:if="${#fields.hasErrors('departmentTime')}" th:errors="*{departmentTime}"></div>
                     </div>
                 </div>
@@ -48,7 +47,7 @@
                         <h4>Arrival time</h4>
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
-                        <input type="text" name="arrivalTime" th:field="${ticket.arrivalTime}" th:errorclass="borderColorRed" class="form-control input-lg">
+                        <input type="datetime-local" name="arrivalTime" th:field="${ticket.arrivalTime}" th:errorclass="borderColorRed" class="form-control">
                         <div th:if="${#fields.hasErrors('arrivalTime')}" th:errors="*{arrivalTime}"></div>
                     </div>
                 </div>
@@ -60,8 +59,8 @@
                         <h4>Department city</h4>
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
-                        <select class="form-control" th:field="*{departmentCity}">
-                            <option th:each="departmentCity : ${departmentCities}" th:value="${departmentCity}" th:text="${departmentCity}">Department city</option>
+                        <select class="form-control" th:field="*{departmentCity.id}" name="departmentCity">
+                            <option th:each="city : ${cities}" th:value="${city.id}" th:text="${city.name}" />
                         </select>
                         <div th:if="${#fields.hasErrors('departmentCity')}" th:errors="*{departmentCity}"></div>
                     </div>
@@ -71,8 +70,8 @@
                         <h4>Arrival city</h4>
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
-                        <select class="form-control" th:field="*{arrivalCity}">
-                            <option th:each="arrivalCity : ${arrivalCities}" th:value="${arrivalCity}" th:text="${arrivalCity}">Arrival city</option>
+                        <select class="form-control" th:field="*{arrivalCity.id}" name="arrivalCity">
+                            <option th:each="city : ${cities}" th:value="${city.id}" th:text="${city.name}" />
                         </select>
                         <div th:if="${#fields.hasErrors('arrivalCity')}" th:errors="*{arrivalCity}"></div>
                     </div>
@@ -86,8 +85,8 @@
                         <h4>Driver</h4>
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
-                        <select class="form-control" th:field="*{driver}">
-                            <option th:each="driver : ${drivers}" th:value="${driver}" th:text="${driver}">Driver</option>
+                        <select class="form-control" th:field="*{driver.id}" name="driver">
+                            <option th:each="driver : ${drivers}" th:value="${driver.id}" th:text="${driver.name}" />
                         </select>
                         <div th:if="${#fields.hasErrors('driver')}" th:errors="*{driver}"></div>
                     </div>
@@ -97,8 +96,8 @@
                         <h4>Bus</h4>
                     </div>
                     <div style="display: table-cell; width: 70%; float: left; vertical-align: middle;">
-                        <select class="form-control" th:field="*{bus}">
-                            <option th:each="bus : ${buses}" th:value="${bus}" th:text="${bus}">Driver</option>
+                        <select class="form-control" th:field="*{bus.id}" name="bus">
+                            <option th:each="bus : ${buses}" th:value="${bus.id}" th:text="${bus.model}" />
                         </select>
                         <div th:if="${#fields.hasErrors('bus')}" th:errors="*{bus}"></div>
                     </div>

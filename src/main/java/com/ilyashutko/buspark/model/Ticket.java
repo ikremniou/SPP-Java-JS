@@ -1,5 +1,8 @@
 package com.ilyashutko.buspark.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -9,7 +12,9 @@ public class Ticket {
 
     private int id;
     private int price;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date departmentTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date arrivalTime;
     private double distance;
     private int count;
@@ -17,15 +22,17 @@ public class Ticket {
     private City departmentCity;
     private City arrivalCity;
     private Bus bus;
-    private Boolean IsInternational;
 
-    public Boolean getInternational() {
-        return IsInternational;
+    public String getIsInternational() {
+        return isInternational;
     }
 
-    public void setInternational(Boolean international) {
-        IsInternational = international;
+    public void setIsInternational(String isInternational) {
+        this.isInternational = isInternational;
     }
+
+    private String isInternational;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

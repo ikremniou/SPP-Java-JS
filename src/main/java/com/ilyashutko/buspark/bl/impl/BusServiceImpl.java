@@ -22,7 +22,6 @@ public class BusServiceImpl implements BusService {
     public Bus update(int oldBusId, Bus bus) {
         Bus selectedBus = busRepository.findOne(Long.valueOf(oldBusId));
         selectedBus.setCapacity(bus.getCapacity());
-        selectedBus.setDriver(bus.getDriver());
         selectedBus.setModel(bus.getModel());
         selectedBus.setGovNumber(bus.getGovNumber());
         return busRepository.save(selectedBus);

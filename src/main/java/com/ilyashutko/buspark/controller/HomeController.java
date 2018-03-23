@@ -1,6 +1,6 @@
 package com.ilyashutko.buspark.controller;
 
-import com.ilyashutko.buspark.modelViews.TicketView;
+import com.ilyashutko.buspark.model.Ticket;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,22 +29,18 @@ public class HomeController {
 
     @RequestMapping("/tickets")
     public String ticketsPrint(ModelMap model){
-        TicketView ticket1 = FillTicket();
-        TicketView ticket2 = FillTicket();
-        TicketView ticket3 = FillTicket();
+        Ticket ticket1 = FillTicket();
+        Ticket ticket2 = FillTicket();
+        Ticket ticket3 = FillTicket();
 
-        model.addAttribute("tickets", new ArrayList<TicketView>(Arrays.asList(ticket1, ticket2,ticket3)));
+        model.addAttribute("tickets", new ArrayList<Ticket>(Arrays.asList(ticket1, ticket2,ticket3)));
 
         return "tickets";
     }
 
-    private TicketView FillTicket(){
-        TicketView ticket = new TicketView();
+    private Ticket FillTicket(){
+        Ticket ticket = new Ticket();
         ticket.setId(1);
-        ticket.setArrivalCity("Minsk");
-        ticket.setDepartmentCity("Grodno");
-        ticket.setArrivalTime("10/11/2018");
-        ticket.setDepartmentTime("1/11/2018");
         ticket.setPrice(1000);
 
         return ticket;

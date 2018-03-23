@@ -8,7 +8,6 @@ public class Bus {
     private int id;
     private String model;
     private int capacity;
-    private User driver;
     private String govNumber;
 
     public String getGovNumber() {
@@ -45,13 +44,4 @@ public class Bus {
         this.capacity = capacity;
     }
 
-    @OneToOne
-    @JoinColumn(name="user_id")
-    public User getDriver() {
-        return driver;
-    }
-
-    public void setDriver(User driver) {
-        this.driver = driver;
-    }
 }

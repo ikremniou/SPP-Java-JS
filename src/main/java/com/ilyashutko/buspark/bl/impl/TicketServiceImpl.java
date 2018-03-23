@@ -29,7 +29,7 @@ public class TicketServiceImpl implements TicketService {
         selectedTicket.setDepartmentTime(ticket.getDepartmentTime());
         selectedTicket.setDistance(ticket.getDistance());
         selectedTicket.setDriver(ticket.getDriver());
-        selectedTicket.setInternational(ticket.getInternational());
+        selectedTicket.setIsInternational(ticket.getIsInternational());
         selectedTicket.setPrice(ticket.getPrice());
         return ticketRepository.save(selectedTicket);
     }
