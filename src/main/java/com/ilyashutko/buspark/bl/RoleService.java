@@ -1,6 +1,7 @@
 package com.ilyashutko.buspark.bl;
 
 import com.ilyashutko.buspark.model.Role;
+
 import java.util.List;
 
 public interface RoleService {
@@ -9,4 +10,5 @@ public interface RoleService {
     Role read(int roleId);
     void delete(int roleId);
     List<Role> getAll();
+    Role findByName(String name);
 }

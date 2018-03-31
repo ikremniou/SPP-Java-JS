@@ -1,5 +1,6 @@
 package com.ilyashutko.buspark.bl.impl;
 
+import com.ilyashutko.buspark.dal.RoleRepository;
 import com.ilyashutko.buspark.dal.UserRepository;
 import com.ilyashutko.buspark.model.Role;
 import com.ilyashutko.buspark.model.User;
@@ -20,6 +21,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     @Transactional

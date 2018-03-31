@@ -3,6 +3,7 @@ package com.ilyashutko.buspark.bl.impl;
 import com.ilyashutko.buspark.bl.UserService;
 import com.ilyashutko.buspark.dal.RoleRepository;
 import com.ilyashutko.buspark.dal.UserRepository;
+import com.ilyashutko.buspark.model.Role;
 import com.ilyashutko.buspark.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -24,7 +25,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(new HashSet<>(roleRepository.findAll()));
+
+        HashSet<Role> roleSet = new HashSet<>();
+
+        roleSet.add(roleRepository.findByName("USER"));
+
+        user.setRoles(roleSet);
         userRepository.save(user);
     }
 
@@ -36,5 +42,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getDrivers() {
         return  null;
+    }
+
+    @Override
+    public void addRoleToUser(User user, Role role) {
+        User findUser = userRepository.findOne(Long.valueOf(user.getId()));
+        findUser.addRole(role);
+        userRepository.save(findUser);
     }
 }

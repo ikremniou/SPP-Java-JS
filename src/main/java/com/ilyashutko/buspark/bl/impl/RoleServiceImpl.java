@@ -4,9 +4,11 @@ import com.ilyashutko.buspark.bl.RoleService;
 import com.ilyashutko.buspark.dal.RoleRepository;
 import com.ilyashutko.buspark.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleRepository roleRepository;
@@ -37,5 +39,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<Role> getAll() {
         return roleRepository.findAll();
+    }
+
+    @Override
+    public Role findByName(String name) {
+        return roleRepository.findByName(name);
     }
 }
